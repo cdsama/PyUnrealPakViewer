@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UIMainWindow.ui'
 #
-# Created: Mon May 21 15:21:52 2018
+# Created: Mon May 21 18:26:19 2018
 #      by: pyside2-uic  running on PySide2 5.9.0a1.dev1525348439
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,15 +33,13 @@ class Ui_MainWindow(object):
         self.horizontal_layout.addWidget(self.combo_box)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontal_layout.addItem(spacerItem)
+        self.btn_test = QtWidgets.QPushButton(self.central_widget)
+        self.btn_test.setObjectName("btn_test")
+        self.horizontal_layout.addWidget(self.btn_test)
         self.verticalLayout.addLayout(self.horizontal_layout)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.file_list_view = QtWidgets.QListWidget(self.central_widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.file_list_view.sizePolicy().hasHeightForWidth())
-        self.file_list_view.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.file_list_view.setFont(font)
@@ -49,7 +47,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.file_list_view)
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.horizontalLayout.addItem(spacerItem1)
-        self.pak_content_tree_view = QtWidgets.QListWidget(self.central_widget)
+        self.pak_content_tree_view = QtWidgets.QTreeView(self.central_widget)
         self.pak_content_tree_view.setObjectName("pak_content_tree_view")
         self.horizontalLayout.addWidget(self.pak_content_tree_view)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -68,4 +66,5 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtWidgets.QApplication.translate("MainWindow", "MainWindow", None, -1))
         self.label.setText(QtWidgets.QApplication.translate("MainWindow", "引擎位置：", None, -1))
+        self.btn_test.setText(QtWidgets.QApplication.translate("MainWindow", "PushButton", None, -1))
 

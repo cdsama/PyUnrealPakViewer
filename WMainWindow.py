@@ -5,7 +5,7 @@ import threading
 
 from PySide2.QtCore import Slot, QMimeData
 from PySide2.QtGui import QDropEvent, QDragEnterEvent
-from PySide2.QtWidgets import QMainWindow, QListWidgetItem
+from PySide2.QtWidgets import QMainWindow, QListWidgetItem, QTreeWidgetItem
 
 from PakFile import PakFileSepFile
 from UIMainWindow import Ui_MainWindow
@@ -72,3 +72,12 @@ class WMainWindow(QMainWindow):
                 # print(res.groups())
                 sep_file_list.append(PakFileSepFile(res.group(0), res.group(1), res.group(2), res.group(3)))
                 self.ui.pak_content_tree_view.addItem(line)
+
+    @Slot()
+    def on_btn_test_clicked(self):
+        item = QTreeWidgetItem(None, ["Test", "a"])
+        child = QTreeWidgetItem(None, ["Test", "a"])
+        g_c = QTreeWidgetItem(None, ["Test", "a"])
+        child.addChild(g_c)
+        item.addChild(child)
+        self.ui.pak_content_tree_view.addTopLevelItem(item)

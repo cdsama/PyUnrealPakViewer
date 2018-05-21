@@ -51,18 +51,19 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QPushButton" name="btn_test">
+        <property name="text">
+         <string>PushButton</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QListWidget" name="file_list_view">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
         <property name="font">
          <font>
           <pointsize>14</pointsize>
@@ -84,7 +85,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QListWidget" name="pak_content_tree_view"/>
+       <widget class="QTreeView" name="pak_content_tree_view"/>
       </item>
      </layout>
     </item>
