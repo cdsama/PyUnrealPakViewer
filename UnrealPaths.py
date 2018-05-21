@@ -12,6 +12,9 @@ def is_valid_root_dir(dir_name, version_info):
     build_version_file = os.path.join(dir_name, "Engine", "Build", "Build.version")
     if not os.path.isfile(build_version_file):
         return result
+    source_distribution_file = os.path.join(dir_name, "Engine", "Build", "SourceDistribution.txt")
+    build_type = "SourceBuild" if os.path.isfile(source_distribution_file) else "BinaryBuild"
+    version_info.update({"BuildType": build_type})
     try:
         with open(build_version_file, "r") as f:
             version_info.update(json.load(f))
@@ -28,7 +31,7 @@ def get_valid_ue4_paths():
     try:
         while True:
             _, value, _ = winreg.EnumValue(build_key, i)
-            version_info = {"RootPath": value}
+            version_info = {"RootPath": value, "OfficialBuild": False}
             if is_valid_root_dir(value, version_info):
                 ue4_paths.append(version_info)
             i += 1
@@ -45,7 +48,7 @@ def get_valid_ue4_paths():
             version_key_name = r"%s\%s" % (installed_key_name, version_name)
             version_key = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, version_key_name)
             _, value, _ = winreg.EnumValue(version_key, 0)
-            version_info = {"RootPath": value.replace("\\", "/")}
+            version_info = {"RootPath": value.replace("\\", "/"), "OfficialBuild": True}
             if is_valid_root_dir(value, version_info):
                 ue4_paths.append(version_info)
             i += 1
@@ -55,5 +58,6 @@ def get_valid_ue4_paths():
     return ue4_paths
 
 
-for path in get_valid_ue4_paths():
-    print(path)
+if __name__ == '__main__':
+    for path in get_valid_ue4_paths():
+        print(path)
