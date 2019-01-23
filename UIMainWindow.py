@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'UIMainWindow.ui'
+# Form implementation generated from reading ui file 'e:\cdsama-git\PyUnrealPakViewer\UIMainWindow.ui',
+# licensing of 'e:\cdsama-git\PyUnrealPakViewer\UIMainWindow.ui' applies.
 #
-# Created: Mon May 21 18:26:19 2018
-#      by: pyside2-uic  running on PySide2 5.9.0a1.dev1525348439
+# Created: Wed Jan 23 18:55:48 2019
+#      by: pyside2-uic  running on PySide2 5.11.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +13,7 @@ from PySide2 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(788, 587)
+        MainWindow.resize(784, 588)
         self.central_widget = QtWidgets.QWidget(MainWindow)
         self.central_widget.setObjectName("central_widget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.central_widget)
@@ -37,23 +38,37 @@ class Ui_MainWindow(object):
         self.btn_test.setObjectName("btn_test")
         self.horizontal_layout.addWidget(self.btn_test)
         self.verticalLayout.addLayout(self.horizontal_layout)
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.file_list_view = QtWidgets.QListWidget(self.central_widget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.file_list_view.sizePolicy().hasHeightForWidth())
+        self.file_list_view.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setPointSize(14)
         self.file_list_view.setFont(font)
         self.file_list_view.setObjectName("file_list_view")
-        self.horizontalLayout.addWidget(self.file_list_view)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.horizontalLayout.addItem(spacerItem1)
-        self.pak_content_tree_view = QtWidgets.QTreeView(self.central_widget)
+        self.verticalLayout_2.addWidget(self.file_list_view)
+        self.pak_content_tree_view = QtWidgets.QTreeWidget(self.central_widget)
+        self.pak_content_tree_view.setColumnCount(4)
         self.pak_content_tree_view.setObjectName("pak_content_tree_view")
-        self.horizontalLayout.addWidget(self.pak_content_tree_view)
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.pak_content_tree_view.headerItem().setText(0, "1")
+        self.pak_content_tree_view.headerItem().setText(1, "2")
+        self.pak_content_tree_view.headerItem().setText(2, "3")
+        self.pak_content_tree_view.headerItem().setText(3, "4")
+        self.pak_content_tree_view.header().setCascadingSectionResizes(True)
+        self.verticalLayout_2.addWidget(self.pak_content_tree_view)
+        self.line = QtWidgets.QFrame(self.central_widget)
+        self.line.setFrameShape(QtWidgets.QFrame.VLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.verticalLayout_2.addWidget(self.line)
+        self.verticalLayout.addLayout(self.verticalLayout_2)
         MainWindow.setCentralWidget(self.central_widget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 788, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 784, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
